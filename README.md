@@ -1,4 +1,4 @@
 # CrackingAlgos2020
-# CrackingAlgos2020
-# CrackingAlgos2020
-# CrackingAlgos2020
+
+# I start practice leetcode algorithems 
+

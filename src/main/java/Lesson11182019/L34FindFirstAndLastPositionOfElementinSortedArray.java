@@ -4,12 +4,11 @@ import java.util.Arrays;
 
 public class L34FindFirstAndLastPositionOfElementinSortedArray {
     public static void main(String[] args) {
-        int[] nums = new int[]{5, 7, 7, 8, 8, 10};
-        int[] res = searchRange(nums, 8);
+      //  int[] nums = new int[]{5, 7, 7, 8, 8, 10};
+        int[] nums = new int[]{1,1,2};
+        int[] res = searchRange(nums, 1);
+        System.out.println(Arrays.toString(res));
 
-        System.out.println(res[0]);
-        System.out.println(res[1]);
-//        System.out.println(Arrays.toString(searchRange(nums, 8)));
     }
 
     private static int searchindex(int[] nums, int target){
@@ -30,7 +29,7 @@ public class L34FindFirstAndLastPositionOfElementinSortedArray {
                 right = middle - 1;
             }
         }
-        return -1;
+        return nums[left] == target? left : -1;
     }
 
 
@@ -41,7 +40,10 @@ public class L34FindFirstAndLastPositionOfElementinSortedArray {
         while (left < right) {
             int middle = left + (right - left) / 2;
             if (nums[middle] == target) {
-                if (nums[middle - 1] != target || middle == 0) {
+                if (middle == 0){
+                    return middle;
+                }
+                if (nums[middle - 1] != target ) {
                     return middle;
                 } else {
                     right = middle - 1;
@@ -57,13 +59,17 @@ public class L34FindFirstAndLastPositionOfElementinSortedArray {
 
 
     private static int searchright(int[] nums, int index, int target) {
+
         int left = index;
         int right = nums.length-1;
 
         while (left < right) {
             int newmiddle = left + (right - left) / 2;
             if (nums[newmiddle] == target) {
-                if (nums[newmiddle + 1] != target || newmiddle == nums.length - 1) {
+                if (newmiddle == nums.length - 1){
+                    return newmiddle;
+                }
+                if (nums[newmiddle + 1] != target ) {
                     return newmiddle;
                 } else {
                     left = newmiddle + 1;
@@ -77,7 +83,10 @@ public class L34FindFirstAndLastPositionOfElementinSortedArray {
         }return right;
     }
 
-    private static int[] searchRange(int[] nums, int target) {
+    public static int[] searchRange(int[] nums, int target) {
+        if (nums == null || nums.length==0){
+            return new int[]{-1,-1};
+        }
         int index = searchindex(nums,target);
         if (index == -1) {
             return new int[]{-1,-1};

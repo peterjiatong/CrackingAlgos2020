@@ -1,6 +1,6 @@
-package Lesson11182019;
+package Lesson11192019;
 
-public class L240SearchA2DMatrixII {
+public class L74SearchA2DMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
 
         if (matrix.length == 0 || matrix[0].length == 0) {
@@ -17,6 +17,5 @@ public class L240SearchA2DMatrixII {
             }
         }
         return false;
-
     }
 }

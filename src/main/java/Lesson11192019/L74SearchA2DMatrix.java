@@ -14,12 +14,12 @@ public class L74SearchA2DMatrix {
 
         while (left <= right) {
             int mid = (right + left) / 2;
-            int X = mid/ matrix[0].length;
-            int Y = mid % matrix[0].length;
+            int i = mid/ matrix[0].length;
+            int j = mid % matrix[0].length;
 
-            if (matrix[X][Y] == target) {
+            if (matrix[i][j] == target) {
                 return true;
-            } else if (matrix[X][Y] < target) {
+            } else if (matrix[i][j] < target) {
                 left = mid + 1;
             } else {
                 right = mid - 1;
@@ -28,20 +28,4 @@ public class L74SearchA2DMatrix {
         return false;
     }
 }
-/*
-if(matrix.length == 0 || matrix[0].length == 0){
-        return false;
-        }
-        else {
-        for (int i = matrix.length-1; i >= 0 ; i--) {
-        if (matrix[i][0] <= target)
-        {
-        for (int i1 = 0; i1 < matrix[i].length; i1++) {
-        if (matrix[i][i1] == target){
-        return true;
-        }
-        }
-        }
-        }
-        }
-        return false;*/
+

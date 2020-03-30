@@ -14,7 +14,7 @@ public class L240SearchA2DMatrixII {
             for (int i = matrix.length - 1; i >= 0; i--) {
                 if (matrix[i][0] <= target) {
                     for (int i1 = 0; i1 < matrix[i].length; i1++) {
-                        if(matrix[i][i1] > target) {
+                        if(matrix[i][i1] > target && i != 0) {
                             i--;
                             i1--;
                         }
